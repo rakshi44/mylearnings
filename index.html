@@ -10,6 +10,7 @@
             background-color: #ADD8E6;
             margin: 0;
             padding: 20px;
+            text-align: center;
         }
         h1 {
             text-align: center;
@@ -36,6 +37,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             max-width: 300px;
             margin: 20px auto;
+            background-image: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
         }
         button {
             display: block;
@@ -50,6 +53,10 @@
         }
         button:hover {
             background-color: #0056b3;
+        }
+        .visit-count {
+            font-size: 18px;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -70,7 +77,10 @@
         <h2 id="time"></h2>
     </div>
 
+    <p class="visit-count">Page visits: <span id="visit-count"></span></p>
+
     <script>
+        // Function to update date and time
         function updateDateTime() {
             var now = new Date();
             var date = now.toLocaleDateString();
@@ -82,6 +92,18 @@
 
         setInterval(updateDateTime, 1000);
         updateDateTime();
+
+        // Function to update visit count
+        function updateVisitCount() {
+            if (localStorage.visitCount) {
+                localStorage.visitCount = Number(localStorage.visitCount) + 1;
+            } else {
+                localStorage.visitCount = 1;
+            }
+            document.getElementById('visit-count').innerText = localStorage.visitCount;
+        }
+
+        updateVisitCount();
     </script>
 </body>
 </html>
