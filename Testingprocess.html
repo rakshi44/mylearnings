@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Testing Process</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADD8E6;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        p {
+            max-width: 800px;
+            margin: 10px auto;
+        }
+        .note {
+            font-style: italic;
+        }
+        .sub-section {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SOFTWARE TESTING PROCESS</h1>
+
+    <h2>Test Environment</h2>
+    <p>Multiple test environments might be required to meet software testing goals. An optimal test environment comprises the software loaded onto the target computer and evaluated within a highly accurate simulation of that environment.</p>
+    <p class="note">Note: Often, achieving the required requirements-based coverage and structural coverage necessitates finer control and monitoring of test inputs and code execution than what is typically possible in a fully integrated setup. Such testing might need to be carried out on a small, functionally isolated software component.</p>
+    <p>Certification credit may be awarded for testing conducted using a target computer emulator or a host computer simulator. Guidelines for the test environment include:</p>
+    <p class="sub-section">Certain tests should be performed within the integrated target computer environment, as some errors can only be identified there.</p>
+
+    <h2>Requirements-Based Test Case Selection</h2>
+    <p>Requirements-based testing is prioritized as it is highly effective in uncovering errors. Guidelines for selecting requirements-based test cases include:</p>
+    <p class="sub-section">To meet software testing objectives, test cases should encompass two categories: normal range test cases and robustness (abnormal range) test cases.</p>
+    <p class="sub-section">Specific test cases should be derived from software requirements and the inherent error sources in the software development processes.</p>
+
+    <h3>Normal Range Test Cases</h3>
+    <p>Normal range test cases aim to demonstrate the software's capability to handle regular inputs and conditions. These include:</p>
+    <p class="sub-section">Real and integer input variables tested using valid equivalence classes and boundary values.</p>
+    <p class="sub-section">Time-related functions (e.g., filters, integrators, delays) tested through multiple iterations to assess functional characteristics.</p>
+    <p class="sub-section">State transition test cases designed to cover transitions possible during normal operations.</p>
+    <p class="sub-section">For logic equation-based software requirements, normal range test cases should validate variable usage and Boolean operators.</p>
+    <p class="note sub-section">Note: Testing all variable combinations may be impractical due to the sheer number required. Instead, a strategy ensuring necessary coverage should be developed. For instance, Boolean operators for Level A could be verified through analysis or review, supplemented by test cases for modified condition/decision coverage.</p>
+
+    <h3>Robustness Test Cases</h3>
+    <p>Robustness test cases are designed to verify the software's response to abnormal inputs and conditions. These include:</p>
+    <p class="sub-section">Real and integer variables tested using equivalence class selection of invalid values.</p>
+    <p class="sub-section">System initialization tested under abnormal conditions.</p>
+    <p class="sub-section">Potential failure modes of incoming data, especially complex digital data strings from external systems, should be determined.</p>
+    <p class="sub-section">Loops with computed loop counts should be tested for out-of-range values to verify loop-related code robustness.</p>
+    <p class="sub-section">Ensure that frame time protection mechanisms respond correctly.</p>
+    <p class="sub-section">For time-related functions (e.g., filters, integrators, delays), develop test cases for arithmetic overflow protection mechanisms.</p>
+    <p class="sub-section">State transition test cases should provoke transitions not allowed by software requirements.</p>
+
+    <h2>Requirements-Based Testing Methods</h2>
+    <p>Requirements-based testing methods encompass hardware/software integration testing, software integration testing, and low-level testing. Except for hardware/software integration testing, these methods do not mandate a specific test environment or strategy. Guidelines include:</p>
+
+    <h3>Requirements-Based Hardware/Software Integration Testing</h3>
+    <p>Focus on error sources related to software operating within the target computer environment and high-level functionality. The goal is to ensure the software in the target computer meets high-level requirements. Typical errors detected include:</p>
+    <p class="sub-section">Incorrect interrupt handling.</p>
+    <p class="sub-section">Failure to meet execution time requirements.</p>
+    <p class="sub-section">Incorrect software response to hardware transients or failures.</p>
+    <p class="sub-section">Data bus and resource contention issues.</p>
+    <p class="sub-section">Built-in test failures to detect errors.</p>
+    <p class="sub-section">Hardware/software interface errors.</p>
+    <p class="sub-section">Incorrect feedback loop behavior.</p>
+    <p class="sub-section">Memory management control errors.</p>
+    <p class="sub-section">Stack overflows.</p>
+    <p class="sub-section">Incorrect field-loadable software verification.</p>
+    <p class="sub-section">Software partitioning violations.</p>
+
+    <h3>Requirements-Based Software Integration Testing</h3>
+    <p>This method focuses on the interrelationships between software requirements and their implementation by the software architecture. The goal is to ensure software components interact correctly and meet requirements and architecture specifications. It involves expanding the scope of requirements and test cases through successive code integration. Typical errors revealed include:</p>
+    <p class="sub-section">Incorrect variable and constant initialization.</p>
+    <p class="sub-section">Parameter passing errors.</p>
+    <p class="sub-section">Data corruption, especially global data.</p>
+    <p class="sub-section">Inadequate end-to-end numerical resolution.</p>
+    <p class="sub-section">Incorrect event and operation sequencing.</p>
+
+    <h3>Requirements-Based Low-Level Testing</h3>
+    <p>This method aims to demonstrate that each software component meets its low-level requirements. Typical errors detected include:</p>
+    <p class="sub-section">Algorithm failures to meet software requirements.</p>
+    <p class="sub-section">Incorrect loop operations and logic decisions.</p>
+    <p class="sub-section">Incorrect processing of input condition combinations.</p>
+    <p class="sub-section">Mishandling of missing or corrupted input data.</p>
+    <p class="sub-section">Inadequate algorithm precision, accuracy, or performance.</p>
+
+    <h2>Test Coverage Analysis</h2>
+    <p>Test coverage analysis involves requirements-based and structural coverage analysis. It first assesses test cases against software requirements to ensure criteria are met. Then, it confirms that requirements-based test procedures exercised the code structure. Structural coverage analysis may not meet criteria, and guidelines are provided to address such situations.</p>
+
+    <h3>Requirements-Based Test Coverage Analysis</h3>
+    <p>This analysis evaluates how well requirements-based testing verified software requirements implementation. It may indicate the need for additional test cases. Requirements-based test coverage analysis should confirm:</p>
+    <p class="sub-section">Test cases exist for each software requirement.</p>
+    <p class="sub-section">Test cases meet normal and robustness testing criteria as defined in the guidelines.</p>
+
+    <h3>Structural Coverage Analysis</h3>
+    <p>This analysis identifies which code structures were not exercised by requirements-based test procedures. If structural coverage is insufficient, additional verification is needed to ensure complete coverage. Guidelines include:</p>
+    <p class="sub-section">Confirming structural coverage appropriate to the software level.</p>
+    <p class="sub-section">Performing structural coverage analysis on the Source Code, unless Level A software requires object code verification due to non-traceable compiler-generated code.</p>
+
+    <h3>Structural Coverage Analysis Resolution</h3>
+    <p>Structural coverage analysis may reveal untested code structures. Resolution requires additional verification activities. This unexecuted code may result from:</p>
+    <p class="sub-section">Incomplete requirements-based test cases or procedures, necessitating supplementary test cases or procedure adjustments.</p>
+    <p class="sub-section">Inadequate software requirements, requiring modifications and additional test cases.</p>
+    <p class="sub-section">Dead code, which should be removed and the impact assessed.</p>
+    <p class="sub-section">Deactivated code, where analysis and testing should ensure it cannot be inadvertently executed. For code executed only in specific configurations, establish normal execution configurations and develop additional test cases to meet coverage objectives.</p>
+
+</body>
+</html>
